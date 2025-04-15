@@ -7,11 +7,13 @@ app.get("/", (req, res) => {
 });
 app.get("/create-blockchain", (req, res) => {
     const chain: Blockchain = new Blockchain();
-    chain.addBlock(new Block(Date.now().toString(), {
-        from: "Mohamed",
-        to: "Ibrahim",
-        amount: 100
-    }))
+    for (let i = 0; i < 10; i++) {
+        chain.addBlock(new Block(Date.now().toString(), {
+            from: "Mohamed",
+            to: "Ibrahim",
+            amount: 100
+        }));
+    }
 
     res.send(chain.chain);
 })
